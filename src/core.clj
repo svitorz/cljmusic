@@ -2,7 +2,8 @@
   (:require [compojure.handler :as handler]
             [ring.adapter.jetty :as jetty]
             [ring.middleware.json :as middleware]
-            [routes :as r]))
+            [routes :as r]
+            [database :as db]))
 
 (def app
   (-> (handler/api r/routes)
@@ -12,8 +13,9 @@
 
 (defonce server (jetty/run-jetty #'app {:port 8080 :join? false}))
 
+
 (defn -main [& _args]
-  (println "Hello, World!")
+  (println db/db-name)
   (.start server))
 
 (comment
