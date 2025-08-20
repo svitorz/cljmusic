@@ -38,5 +38,7 @@
 
 @(d/transact conn first-songs)
 
-(def all-songs-q '[:find ?e ?title
-                   :where[?e :music/title ?title]])
+(def all-songs-q '[:find ?e ?title ?artist_name ?release_date 
+                   :where[?e :music/title ?title] 
+                   [?e :music/artist_name ?artist_name] 
+                   [?e :music/release_date ?release_date]])
