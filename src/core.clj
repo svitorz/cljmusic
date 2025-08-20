@@ -2,8 +2,7 @@
   (:require [compojure.handler :as handler]
             [ring.adapter.jetty :as jetty]
             [ring.middleware.json :as middleware]
-            [routes :as r]
-            [database :as db]))
+            [routes :as r]))
 
 (def app
   (-> (handler/api r/routes)
@@ -15,7 +14,6 @@
 
 
 (defn -main [& _args]
-  (println db/db-name)
   (.start server))
 
 (comment
