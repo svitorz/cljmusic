@@ -26,17 +26,17 @@
 
 @(d/transact conn music-schema)
 
-(def first-songs [{:music/title "November Rain"
-                   :music/artist_name "Guns N' Roses" 
-                   :music/release_date 1991 }
-                  {:music/title "Na Maldade"
-                   :music/artist_name "Simone Morena" 
-                   :music/release_date 2023 }
-                  {:music/title "Amina"
-                   :music/artist_name "Tasha & Tracie" 
-                   :music/release_date 2025 }])
-
-@(d/transact conn first-songs)
+;;(def first-songs [{:music/title "November Rain"
+;                   :music/artist_name "Guns N' Roses" 
+;                   :music/release_date 1991 }
+;                  {:music/title "Na Maldade"
+;                   :music/artist_name "Simone Morena" 
+;                   :music/release_date 2023 }
+;                  {:music/title "Amina"
+;                   :music/artist_name "Tasha & Tracie" 
+;                   :music/release_date 2025 }])
+;
+;@(d/transact conn first-songs)
 
 (def all-songs-q '[:find ?e ?title ?artist_name ?release_date 
                    :where[?e :music/title ?title] 
